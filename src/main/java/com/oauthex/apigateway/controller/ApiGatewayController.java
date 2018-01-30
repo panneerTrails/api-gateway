@@ -30,8 +30,8 @@ public class ApiGatewayController implements SwaggerResourcesProvider{
     @Override
     public List<SwaggerResource> get() {
         List resources = new ArrayList<>();
-        resources.add(swaggerResource("product-composite-service", "/ProductComp/v2/api-docs", "2.0"));
-        resources.add(swaggerResource("product-test-service", "/ProductService/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("product-composite-service", "/product-composite-service/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("product-test-service", "/product-test-service/v2/api-docs", "2.0"));
         return resources;
     }
 

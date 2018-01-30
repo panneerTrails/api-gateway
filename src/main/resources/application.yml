@@ -11,34 +11,34 @@ security:
 #In case of zuul routing using url, need to change the below property - 'false'
 ribbon:
   eureka:
-    enabled: false
+    enabled: true
 
 zuul:
   routes:
     product-composite-service-proxy:
       path: /ProductComp/**
       #In case of not using zuul routing, need to change the below 'serviceId' to 'url'
-      url: https://product-composite-service.cfapps.io
-      #serviceId: product-composite-service
-      #stripPrefix: false
+      #url: https://product-composite-service.cfapps.io
+      serviceId: product-composite-service
+      stripPrefix: false
 
     product-service-proxy:
       path: /ProductService/**
-      url: https://product-test-service.cfapps.io
-      #serviceId: product-test-service
-      #stripPrefix: false
+      #url: https://product-test-service.cfapps.io
+      serviceId: product-test-service
+      stripPrefix: false
 
   #To ignore API-GATEWAY methods
   ignored-patterns: /hello, /api, /swagger-ui.html, /actuator/**, /configuration/**, /webjars/**, /swagger-resources/**, /swagger-composite/**, /v2/**, /jv/redirect/**, /heartbeat, /gateway/**, /favicon.ico, /public
 
   # Prevent direct exposure of service-id from api-gateway
-  ignored-services: '*'
+  #ignored-services: '*'
 
   #if nothing is added that is called - dynamic routing
 
 # Proxy purpose
-# case 1 - When ribbon.euraka.enabled = false, should be using 'zuul.routes.url' and enable 'ignored-services':'*'
-# case 2 - When ribbon.eureka.enabled = true, should be using 'zuul.routes.serviceId' and enable 'ignored-services':'*'
+# case 1 - When ribbon.euraka.enabled = false, should be using 'zuul.routes.url' and enable 'ignored-services':'*' and use 'Path' in java location
+# case 2 - When ribbon.eureka.enabled = true, should be using 'zuul.routes.serviceId' and disable 'ignored-services':'*' and use 'serviceId' in java location
 
 # swagger purpose
 # case 1 - when using serviceId in the 'resourceUrl' in the swagger controller, disable ignored-services:'*' and set stripPrefix: false
