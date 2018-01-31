@@ -1,6 +1,7 @@
 package com.oauthex.apigateway;
 
 import com.oauthex.apigateway.filter.SimpleFilter;
+import com.oauthex.common.swagger.web.EnableCommonSwagger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableZuulProxy
+@EnableCommonSwagger
 public class ApiGatewayApplication {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ApiGatewayApplication.class);

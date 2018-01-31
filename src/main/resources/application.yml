@@ -43,3 +43,14 @@ zuul:
 # swagger purpose
 # case 1 - when using serviceId in the 'resourceUrl' in the swagger controller, disable ignored-services:'*' and set stripPrefix: false
 # case 2 - when using servicePath in the 'resourceUrl' in the swagger controller, enable ignored-services:'*' and set stripPrefix: true
+
+common:
+  web:
+    config:
+      swagger:
+        controllerPackage: com.oauthex.apigateway.controller
+        author: Panneerselvam
+        apiName: API Gateway
+        apiVersion: v1
+        apiDescription: API Gateway to interact with all the services
+        enabled: true
